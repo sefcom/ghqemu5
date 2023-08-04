@@ -1,0 +1,612 @@
+
+SPEED = quick
+
+# $1 = environment, $2 = test command, $3 = test name, $4 = dir
+.test-human-tap = $1 $(if $4,(cd $4 && $2),$2) -m $(SPEED) < /dev/null | ./scripts/tap-driver.pl --test-name="$3" $(if $(V),,--show-failures-only)
+.test-human-exitcode = $1 $(PYTHON) scripts/test-driver.py $(if $4,-C$4) $(if $(V),--verbose) -- $2 < /dev/null
+.test-tap-tap = $1 $(if $4,(cd $4 && $2),$2) < /dev/null | sed "s/^[a-z][a-z]* [0-9]*/& $3/" || true
+.test-tap-exitcode = printf "%s\n" 1..1 "`$1 $(if $4,(cd $4 && $2),$2) < /dev/null > /dev/null || echo "not "`ok 1 $3"
+.test.human-print = echo $(if $(V),'$1 $2','Running test $3') &&
+.test.env = MALLOC_PERTURB_=$${MALLOC_PERTURB_:-$$(( $${RANDOM:-0} % 255 + 1))}
+
+# $1 = test name, $2 = test target (human or tap)
+.test.run = $(call .test.$2-print,$(.test.env.$1),$(.test.cmd.$1),$(.test.name.$1)) $(call .test-$2-$(.test.driver.$1),$(.test.env.$1),$(.test.cmd.$1),$(.test.name.$1),$(.test.dir.$1))
+
+.test.output-format = human
+
+.test.name.1 := check-block-qdict
+.test.driver.1 := tap
+.test.env.1 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.1 := tests/unit/check-block-qdict --tap -k
+.test.deps.1 := tests/unit/check-block-qdict
+.PHONY: run-test-1
+run-test-1: $(.test.deps.1)
+	@$(call .test.run,1,$(.test.output-format))
+.test.name.2 := check-qdict
+.test.driver.2 := tap
+.test.env.2 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.2 := tests/unit/check-qdict --tap -k
+.test.deps.2 := tests/unit/check-qdict
+.PHONY: run-test-2
+run-test-2: $(.test.deps.2)
+	@$(call .test.run,2,$(.test.output-format))
+.test.name.3 := check-qjson
+.test.driver.3 := tap
+.test.env.3 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.3 := tests/unit/check-qjson --tap -k
+.test.deps.3 := tests/unit/check-qjson
+.PHONY: run-test-3
+run-test-3: $(.test.deps.3)
+	@$(call .test.run,3,$(.test.output-format))
+.test.name.4 := check-qlist
+.test.driver.4 := tap
+.test.env.4 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.4 := tests/unit/check-qlist --tap -k
+.test.deps.4 := tests/unit/check-qlist
+.PHONY: run-test-4
+run-test-4: $(.test.deps.4)
+	@$(call .test.run,4,$(.test.output-format))
+.test.name.5 := check-qlit
+.test.driver.5 := tap
+.test.env.5 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.5 := tests/unit/check-qlit --tap -k
+.test.deps.5 := tests/unit/check-qlit
+.PHONY: run-test-5
+run-test-5: $(.test.deps.5)
+	@$(call .test.run,5,$(.test.output-format))
+.test.name.6 := check-qnull
+.test.driver.6 := tap
+.test.env.6 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.6 := tests/unit/check-qnull --tap -k
+.test.deps.6 := tests/unit/check-qnull
+.PHONY: run-test-6
+run-test-6: $(.test.deps.6)
+	@$(call .test.run,6,$(.test.output-format))
+.test.name.7 := check-qnum
+.test.driver.7 := tap
+.test.env.7 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.7 := tests/unit/check-qnum --tap -k
+.test.deps.7 := tests/unit/check-qnum
+.PHONY: run-test-7
+run-test-7: $(.test.deps.7)
+	@$(call .test.run,7,$(.test.output-format))
+.test.name.8 := check-qobject
+.test.driver.8 := tap
+.test.env.8 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.8 := tests/unit/check-qobject --tap -k
+.test.deps.8 := tests/unit/check-qobject
+.PHONY: run-test-8
+run-test-8: $(.test.deps.8)
+	@$(call .test.run,8,$(.test.output-format))
+.test.name.9 := check-qom-interface
+.test.driver.9 := tap
+.test.env.9 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.9 := tests/unit/check-qom-interface --tap -k
+.test.deps.9 := tests/unit/check-qom-interface
+.PHONY: run-test-9
+run-test-9: $(.test.deps.9)
+	@$(call .test.run,9,$(.test.output-format))
+.test.name.10 := check-qom-proplist
+.test.driver.10 := tap
+.test.env.10 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.10 := tests/unit/check-qom-proplist --tap -k
+.test.deps.10 := tests/unit/check-qom-proplist
+.PHONY: run-test-10
+run-test-10: $(.test.deps.10)
+	@$(call .test.run,10,$(.test.output-format))
+.test.name.11 := check-qstring
+.test.driver.11 := tap
+.test.env.11 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.11 := tests/unit/check-qstring --tap -k
+.test.deps.11 := tests/unit/check-qstring
+.PHONY: run-test-11
+run-test-11: $(.test.deps.11)
+	@$(call .test.run,11,$(.test.output-format))
+.test.name.12 := ptimer-test
+.test.driver.12 := tap
+.test.env.12 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.12 := tests/unit/ptimer-test --tap -k
+.test.deps.12 := tests/unit/ptimer-test
+.PHONY: run-test-12
+run-test-12: $(.test.deps.12)
+	@$(call .test.run,12,$(.test.output-format))
+.test.name.13 := rcutorture
+.test.driver.13 := tap
+.test.env.13 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.13 := tests/unit/rcutorture --tap -k
+.test.deps.13 := tests/unit/rcutorture
+.PHONY: run-test-13
+run-test-13: $(.test.deps.13)
+	@$(call .test.run,13,$(.test.output-format))
+.test.name.14 := test-bitcnt
+.test.driver.14 := tap
+.test.env.14 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.14 := tests/unit/test-bitcnt --tap -k
+.test.deps.14 := tests/unit/test-bitcnt
+.PHONY: run-test-14
+run-test-14: $(.test.deps.14)
+	@$(call .test.run,14,$(.test.output-format))
+.test.name.15 := test-bitmap
+.test.driver.15 := tap
+.test.env.15 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.15 := tests/unit/test-bitmap --tap -k
+.test.deps.15 := tests/unit/test-bitmap
+.PHONY: run-test-15
+run-test-15: $(.test.deps.15)
+	@$(call .test.run,15,$(.test.output-format))
+.test.name.16 := test-bitops
+.test.driver.16 := tap
+.test.env.16 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.16 := tests/unit/test-bitops --tap -k
+.test.deps.16 := tests/unit/test-bitops
+.PHONY: run-test-16
+run-test-16: $(.test.deps.16)
+	@$(call .test.run,16,$(.test.output-format))
+.test.name.17 := test-clone-visitor
+.test.driver.17 := tap
+.test.env.17 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.17 := tests/unit/test-clone-visitor --tap -k
+.test.deps.17 := tests/unit/test-clone-visitor
+.PHONY: run-test-17
+run-test-17: $(.test.deps.17)
+	@$(call .test.run,17,$(.test.output-format))
+.test.name.18 := test-cutils
+.test.driver.18 := tap
+.test.env.18 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.18 := tests/unit/test-cutils --tap -k
+.test.deps.18 := tests/unit/test-cutils
+.PHONY: run-test-18
+run-test-18: $(.test.deps.18)
+	@$(call .test.run,18,$(.test.output-format))
+.test.name.19 := test-div128
+.test.driver.19 := tap
+.test.env.19 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.19 := tests/unit/test-div128 --tap -k
+.test.deps.19 := tests/unit/test-div128
+.PHONY: run-test-19
+run-test-19: $(.test.deps.19)
+	@$(call .test.run,19,$(.test.output-format))
+.test.name.20 := test-forward-visitor
+.test.driver.20 := tap
+.test.env.20 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.20 := tests/unit/test-forward-visitor --tap -k
+.test.deps.20 := tests/unit/test-forward-visitor
+.PHONY: run-test-20
+run-test-20: $(.test.deps.20)
+	@$(call .test.run,20,$(.test.output-format))
+.test.name.21 := test-int128
+.test.driver.21 := tap
+.test.env.21 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.21 := tests/unit/test-int128 --tap -k
+.test.deps.21 := tests/unit/test-int128
+.PHONY: run-test-21
+run-test-21: $(.test.deps.21)
+	@$(call .test.run,21,$(.test.output-format))
+.test.name.22 := test-keyval
+.test.driver.22 := tap
+.test.env.22 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.22 := tests/unit/test-keyval --tap -k
+.test.deps.22 := tests/unit/test-keyval
+.PHONY: run-test-22
+run-test-22: $(.test.deps.22)
+	@$(call .test.run,22,$(.test.output-format))
+.test.name.23 := test-logging
+.test.driver.23 := tap
+.test.env.23 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.23 := tests/unit/test-logging --tap -k
+.test.deps.23 := tests/unit/test-logging
+.PHONY: run-test-23
+run-test-23: $(.test.deps.23)
+	@$(call .test.run,23,$(.test.output-format))
+.test.name.24 := test-mul64
+.test.driver.24 := tap
+.test.env.24 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.24 := tests/unit/test-mul64 --tap -k
+.test.deps.24 := tests/unit/test-mul64
+.PHONY: run-test-24
+run-test-24: $(.test.deps.24)
+	@$(call .test.run,24,$(.test.output-format))
+.test.name.25 := test-opts-visitor
+.test.driver.25 := tap
+.test.env.25 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.25 := tests/unit/test-opts-visitor --tap -k
+.test.deps.25 := tests/unit/test-opts-visitor
+.PHONY: run-test-25
+run-test-25: $(.test.deps.25)
+	@$(call .test.run,25,$(.test.output-format))
+.test.name.26 := test-qapi-util
+.test.driver.26 := tap
+.test.env.26 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.26 := tests/unit/test-qapi-util --tap -k
+.test.deps.26 := tests/unit/test-qapi-util
+.PHONY: run-test-26
+run-test-26: $(.test.deps.26)
+	@$(call .test.run,26,$(.test.output-format))
+.test.name.27 := test-qdist
+.test.driver.27 := tap
+.test.env.27 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.27 := tests/unit/test-qdist --tap -k
+.test.deps.27 := tests/unit/test-qdist
+.PHONY: run-test-27
+run-test-27: $(.test.deps.27)
+	@$(call .test.run,27,$(.test.output-format))
+.test.name.28 := test-qemu-opts
+.test.driver.28 := tap
+.test.env.28 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.28 := tests/unit/test-qemu-opts --tap -k
+.test.deps.28 := tests/unit/test-qemu-opts
+.PHONY: run-test-28
+run-test-28: $(.test.deps.28)
+	@$(call .test.run,28,$(.test.output-format))
+.test.name.29 := test-qgraph
+.test.driver.29 := tap
+.test.env.29 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.29 := tests/unit/test-qgraph --tap -k
+.test.deps.29 := tests/unit/test-qgraph
+.PHONY: run-test-29
+run-test-29: $(.test.deps.29)
+	@$(call .test.run,29,$(.test.output-format))
+.test.name.30 := test-qht
+.test.driver.30 := tap
+.test.env.30 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.30 := tests/unit/test-qht --tap -k
+.test.deps.30 := tests/unit/test-qht
+.PHONY: run-test-30
+run-test-30: $(.test.deps.30)
+	@$(call .test.run,30,$(.test.output-format))
+.test.name.31 := test-qobject-input-visitor
+.test.driver.31 := tap
+.test.env.31 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.31 := tests/unit/test-qobject-input-visitor --tap -k
+.test.deps.31 := tests/unit/test-qobject-input-visitor
+.PHONY: run-test-31
+run-test-31: $(.test.deps.31)
+	@$(call .test.run,31,$(.test.output-format))
+.test.name.32 := test-qobject-output-visitor
+.test.driver.32 := tap
+.test.env.32 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.32 := tests/unit/test-qobject-output-visitor --tap -k
+.test.deps.32 := tests/unit/test-qobject-output-visitor
+.PHONY: run-test-32
+run-test-32: $(.test.deps.32)
+	@$(call .test.run,32,$(.test.output-format))
+.test.name.33 := test-rcu-list
+.test.driver.33 := tap
+.test.env.33 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.33 := tests/unit/test-rcu-list --tap -k
+.test.deps.33 := tests/unit/test-rcu-list
+.PHONY: run-test-33
+run-test-33: $(.test.deps.33)
+	@$(call .test.run,33,$(.test.output-format))
+.test.name.34 := test-rcu-simpleq
+.test.driver.34 := tap
+.test.env.34 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.34 := tests/unit/test-rcu-simpleq --tap -k
+.test.deps.34 := tests/unit/test-rcu-simpleq
+.PHONY: run-test-34
+run-test-34: $(.test.deps.34)
+	@$(call .test.run,34,$(.test.output-format))
+.test.name.35 := test-rcu-slist
+.test.driver.35 := tap
+.test.env.35 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.35 := tests/unit/test-rcu-slist --tap -k
+.test.deps.35 := tests/unit/test-rcu-slist
+.PHONY: run-test-35
+run-test-35: $(.test.deps.35)
+	@$(call .test.run,35,$(.test.output-format))
+.test.name.36 := test-rcu-tailq
+.test.driver.36 := tap
+.test.env.36 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.36 := tests/unit/test-rcu-tailq --tap -k
+.test.deps.36 := tests/unit/test-rcu-tailq
+.PHONY: run-test-36
+run-test-36: $(.test.deps.36)
+	@$(call .test.run,36,$(.test.output-format))
+.test.name.37 := test-shift128
+.test.driver.37 := tap
+.test.env.37 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.37 := tests/unit/test-shift128 --tap -k
+.test.deps.37 := tests/unit/test-shift128
+.PHONY: run-test-37
+run-test-37: $(.test.deps.37)
+	@$(call .test.run,37,$(.test.output-format))
+.test.name.38 := test-smp-parse
+.test.driver.38 := tap
+.test.env.38 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.38 := tests/unit/test-smp-parse --tap -k
+.test.deps.38 := tests/unit/test-smp-parse
+.PHONY: run-test-38
+run-test-38: $(.test.deps.38)
+	@$(call .test.run,38,$(.test.output-format))
+.test.name.39 := test-string-input-visitor
+.test.driver.39 := tap
+.test.env.39 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.39 := tests/unit/test-string-input-visitor --tap -k
+.test.deps.39 := tests/unit/test-string-input-visitor
+.PHONY: run-test-39
+run-test-39: $(.test.deps.39)
+	@$(call .test.run,39,$(.test.output-format))
+.test.name.40 := test-string-output-visitor
+.test.driver.40 := tap
+.test.env.40 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.40 := tests/unit/test-string-output-visitor --tap -k
+.test.deps.40 := tests/unit/test-string-output-visitor
+.PHONY: run-test-40
+run-test-40: $(.test.deps.40)
+	@$(call .test.run,40,$(.test.output-format))
+.test.name.41 := test-uuid
+.test.driver.41 := tap
+.test.env.41 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.41 := tests/unit/test-uuid --tap -k
+.test.deps.41 := tests/unit/test-uuid
+.PHONY: run-test-41
+run-test-41: $(.test.deps.41)
+	@$(call .test.run,41,$(.test.output-format))
+.test.name.42 := test-visitor-serialization
+.test.driver.42 := tap
+.test.env.42 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.42 := tests/unit/test-visitor-serialization --tap -k
+.test.deps.42 := tests/unit/test-visitor-serialization
+.PHONY: run-test-42
+run-test-42: $(.test.deps.42)
+	@$(call .test.run,42,$(.test.output-format))
+.test.name.43 := test-x86-cpuid
+.test.driver.43 := tap
+.test.env.43 := $(.test.env) G_TEST_SRCDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/unit G_TEST_BUILDDIR=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/tests/unit
+.test.cmd.43 := tests/unit/test-x86-cpuid --tap -k
+.test.deps.43 := tests/unit/test-x86-cpuid
+.PHONY: run-test-43
+run-test-43: $(.test.deps.43)
+	@$(call .test.run,43,$(.test.output-format))
+.test.dir.44 := /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/decode
+.test.name.44 := decodetree
+.test.driver.44 := exitcode
+.test.env.44 := $(.test.env) 
+.test.cmd.44 := ../../../../../../../../../usr/bin/sh /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/decode/check.sh '/usr/bin/python3 -B' /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/../scripts/decodetree.py
+.test.deps.44 := 
+.PHONY: run-test-44
+run-test-44: $(.test.deps.44)
+	@$(call .test.run,44,$(.test.output-format))
+.test.name.45 := fp-test-float-to-float
+.test.driver.45 := exitcode
+.test.env.45 := $(.test.env) 
+.test.cmd.45 := tests/fp/fp-test -s -l 1 -r all f16_to_f32 f16_to_f64 f16_to_extF80 f16_to_f128 f32_to_f16 f32_to_f64 f32_to_extF80 f64_to_f16 f64_to_f32 extF80_to_f16 extF80_to_f32 extF80_to_f64 extF80_to_f128 f128_to_f16
+.test.deps.45 := tests/fp/fp-test
+.PHONY: run-test-45
+run-test-45: $(.test.deps.45)
+	@$(call .test.run,45,$(.test.output-format))
+.test.name.46 := fp-test-float-to-int
+.test.driver.46 := exitcode
+.test.env.46 := $(.test.env) 
+.test.cmd.46 := tests/fp/fp-test -s -l 1 -r all f16_to_i32 f16_to_i32_r_minMag f32_to_i32 f32_to_i32_r_minMag f64_to_i32 f64_to_i32_r_minMag extF80_to_i32 extF80_to_i32_r_minMag f128_to_i32 f128_to_i32_r_minMag f16_to_i64 f16_to_i64_r_minMag f32_to_i64 f32_to_i64_r_minMag f64_to_i64 f64_to_i64_r_minMag extF80_to_i64 extF80_to_i64_r_minMag f128_to_i64 f128_to_i64_r_minMag
+.test.deps.46 := tests/fp/fp-test
+.PHONY: run-test-46
+run-test-46: $(.test.deps.46)
+	@$(call .test.run,46,$(.test.output-format))
+.test.name.47 := fp-test-float-to-uint
+.test.driver.47 := exitcode
+.test.env.47 := $(.test.env) 
+.test.cmd.47 := tests/fp/fp-test -s -l 1 -r all f16_to_ui32 f16_to_ui32_r_minMag f32_to_ui32 f32_to_ui32_r_minMag f64_to_ui32 f64_to_ui32_r_minMag extF80_to_ui32 extF80_to_ui32_r_minMag f128_to_ui32 f128_to_ui32_r_minMag f16_to_ui64 f16_to_ui64_r_minMag f32_to_ui64 f32_to_ui64_r_minMag f64_to_ui64 f64_to_ui64_r_minMag extF80_to_ui64 extF80_to_ui64_r_minMag f128_to_ui64 f128_to_ui64_r_minMag
+.test.deps.47 := tests/fp/fp-test
+.PHONY: run-test-47
+run-test-47: $(.test.deps.47)
+	@$(call .test.run,47,$(.test.output-format))
+.test.name.48 := fp-test-int-to-float
+.test.driver.48 := exitcode
+.test.env.48 := $(.test.env) 
+.test.cmd.48 := tests/fp/fp-test -s -l 1 -r all i32_to_f16 i64_to_f16 i32_to_f32 i64_to_f32 i32_to_f64 i64_to_f64 i32_to_extF80 i64_to_extF80 i32_to_f128 i64_to_f128
+.test.deps.48 := tests/fp/fp-test
+.PHONY: run-test-48
+run-test-48: $(.test.deps.48)
+	@$(call .test.run,48,$(.test.output-format))
+.test.name.49 := fp-test-round-to-integer
+.test.driver.49 := exitcode
+.test.env.49 := $(.test.env) 
+.test.cmd.49 := tests/fp/fp-test -s -l 1 -r all f16_roundToInt f32_roundToInt f64_roundToInt extF80_roundToInt f128_roundToInt
+.test.deps.49 := tests/fp/fp-test
+.PHONY: run-test-49
+run-test-49: $(.test.deps.49)
+	@$(call .test.run,49,$(.test.output-format))
+.test.name.50 := fp-test-uint-to-float
+.test.driver.50 := exitcode
+.test.env.50 := $(.test.env) 
+.test.cmd.50 := tests/fp/fp-test -s -l 1 -r all ui32_to_f16 ui64_to_f16 ui32_to_f32 ui64_to_f32 ui32_to_f64 ui64_to_f64 ui64_to_f128 ui32_to_extF80 ui64_to_extF80
+.test.deps.50 := tests/fp/fp-test
+.PHONY: run-test-50
+run-test-50: $(.test.deps.50)
+	@$(call .test.run,50,$(.test.output-format))
+.test.name.51 := fp-test-add
+.test.driver.51 := exitcode
+.test.env.51 := $(.test.env) 
+.test.cmd.51 := tests/fp/fp-test -s -l 1 -r all f16_add f32_add f64_add f128_add extF80_add
+.test.deps.51 := tests/fp/fp-test
+.PHONY: run-test-51
+run-test-51: $(.test.deps.51)
+	@$(call .test.run,51,$(.test.output-format))
+.test.name.52 := fp-test-div
+.test.driver.52 := exitcode
+.test.env.52 := $(.test.env) 
+.test.cmd.52 := tests/fp/fp-test -s -l 1 -r all f16_div f32_div f64_div f128_div extF80_div
+.test.deps.52 := tests/fp/fp-test
+.PHONY: run-test-52
+run-test-52: $(.test.deps.52)
+	@$(call .test.run,52,$(.test.output-format))
+.test.name.53 := fp-test-eq_signaling
+.test.driver.53 := exitcode
+.test.env.53 := $(.test.env) 
+.test.cmd.53 := tests/fp/fp-test -s -l 1 -r all f16_eq_signaling f32_eq_signaling f64_eq_signaling f128_eq_signaling extF80_eq_signaling
+.test.deps.53 := tests/fp/fp-test
+.PHONY: run-test-53
+run-test-53: $(.test.deps.53)
+	@$(call .test.run,53,$(.test.output-format))
+.test.name.54 := fp-test-le
+.test.driver.54 := exitcode
+.test.env.54 := $(.test.env) 
+.test.cmd.54 := tests/fp/fp-test -s -l 1 -r all f16_le f32_le f64_le f128_le extF80_le
+.test.deps.54 := tests/fp/fp-test
+.PHONY: run-test-54
+run-test-54: $(.test.deps.54)
+	@$(call .test.run,54,$(.test.output-format))
+.test.name.55 := fp-test-le_quiet
+.test.driver.55 := exitcode
+.test.env.55 := $(.test.env) 
+.test.cmd.55 := tests/fp/fp-test -s -l 1 -r all f16_le_quiet f32_le_quiet f64_le_quiet f128_le_quiet extF80_le_quiet
+.test.deps.55 := tests/fp/fp-test
+.PHONY: run-test-55
+run-test-55: $(.test.deps.55)
+	@$(call .test.run,55,$(.test.output-format))
+.test.name.56 := fp-test-lt_quiet
+.test.driver.56 := exitcode
+.test.env.56 := $(.test.env) 
+.test.cmd.56 := tests/fp/fp-test -s -l 1 -r all f16_lt_quiet f32_lt_quiet f64_lt_quiet f128_lt_quiet extF80_lt_quiet
+.test.deps.56 := tests/fp/fp-test
+.PHONY: run-test-56
+run-test-56: $(.test.deps.56)
+	@$(call .test.run,56,$(.test.output-format))
+.test.name.57 := fp-test-mul
+.test.driver.57 := exitcode
+.test.env.57 := $(.test.env) 
+.test.cmd.57 := tests/fp/fp-test -s -l 1 -r all f16_mul f32_mul f64_mul f128_mul extF80_mul
+.test.deps.57 := tests/fp/fp-test
+.PHONY: run-test-57
+run-test-57: $(.test.deps.57)
+	@$(call .test.run,57,$(.test.output-format))
+.test.name.58 := fp-test-rem
+.test.driver.58 := exitcode
+.test.env.58 := $(.test.env) 
+.test.cmd.58 := tests/fp/fp-test -s -l 1 -r all f16_rem f32_rem f64_rem f128_rem extF80_rem
+.test.deps.58 := tests/fp/fp-test
+.PHONY: run-test-58
+run-test-58: $(.test.deps.58)
+	@$(call .test.run,58,$(.test.output-format))
+.test.name.59 := fp-test-sqrt
+.test.driver.59 := exitcode
+.test.env.59 := $(.test.env) 
+.test.cmd.59 := tests/fp/fp-test -s -l 1 -r all f16_sqrt f32_sqrt f64_sqrt f128_sqrt extF80_sqrt
+.test.deps.59 := tests/fp/fp-test
+.PHONY: run-test-59
+run-test-59: $(.test.deps.59)
+	@$(call .test.run,59,$(.test.output-format))
+.test.name.60 := fp-test-sub
+.test.driver.60 := exitcode
+.test.env.60 := $(.test.env) 
+.test.cmd.60 := tests/fp/fp-test -s -l 1 -r all f16_sub f32_sub f64_sub f128_sub extF80_sub
+.test.deps.60 := tests/fp/fp-test
+.PHONY: run-test-60
+run-test-60: $(.test.deps.60)
+	@$(call .test.run,60,$(.test.output-format))
+.test.name.61 := fp-test-mulAdd
+.test.driver.61 := exitcode
+.test.env.61 := $(.test.env) 
+.test.cmd.61 := tests/fp/fp-test -s -l 1 f16_mulAdd f32_mulAdd f64_mulAdd f128_mulAdd
+.test.deps.61 := tests/fp/fp-test
+.PHONY: run-test-61
+run-test-61: $(.test.deps.61)
+	@$(call .test.run,61,$(.test.output-format))
+.test.name.62 := fp-test-log2
+.test.driver.62 := exitcode
+.test.env.62 := $(.test.env) 
+.test.cmd.62 := tests/fp/fp-test-log2
+.test.deps.62 := tests/fp/fp-test-log2
+.PHONY: run-test-62
+run-test-62: $(.test.deps.62)
+	@$(call .test.run,62,$(.test.output-format))
+.test.name.63 := QAPI schema regression tests
+.test.driver.63 := exitcode
+.test.env.63 := $(.test.env) PYTHONPATH=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts PYTHONIOENCODING=utf-8
+.test.cmd.63 := ../../../../../../../../usr/bin/python3 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/test-qapi.py /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-any.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-array.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-base.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-branch-if-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-clash.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-enum-bool.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-enum-int.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-string.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-bool-string.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-conflict-num-string.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-data-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-nested.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/alternate-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-alternate.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-any.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-array-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-array-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-bad-boxed.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-boxed-anon.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-boxed-string.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-int.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-member-array-bad.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-member-case.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-member-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-union.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/args-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-base.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-data.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-ident.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-all.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-empty-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-key.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-keys.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-if-not.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-type-bool.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-type-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/bad-type-int.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/base-cycle-direct.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/base-cycle-indirect.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/command-int.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/comments.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-alternate-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-boxed-command-arg.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-command-arg.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-enum-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-event-arg.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-feature.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-indent.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-section.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-symbol.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-bad-union-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-before-include.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-before-pragma.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-duplicated-arg.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-duplicated-return.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-duplicated-since.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-empty-arg.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-empty-section.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-empty-symbol.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-good.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-interleaved-section.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-invalid-end.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-invalid-end2.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-invalid-return.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-invalid-section.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-invalid-start.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-missing-colon.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-missing-expr.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-missing-space.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-missing.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-no-symbol.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/doc-undoc-feature.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/double-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/duplicate-key.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-bad-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-bad-name.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-bad-prefix.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-clash-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-dict-member-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-if-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-int-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-member-case.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-missing-data.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/enum-wrong-data.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/event-boxed-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/event-case.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/event-member-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/event-nest-struct.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-bad-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-deprecated-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-duplicate-name.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-if-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-missing-name.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-name-bad-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-no-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/features-unknown-key.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/funny-char.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/funny-word.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/ident-with-escape.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-before-err.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-cycle.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-extra-junk.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-nested-err.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-no-file.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-non-file.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-repetition.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-self-cycle.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/include-simple.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/indented-expr.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/leading-comma-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/leading-comma-object.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-array-rsqb.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-colon.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-comma-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-comma-object.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-object-member-element.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/missing-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/nested-struct-data.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/nested-struct-data-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/non-objects.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/oob-coroutine.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/oob-test.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/allow-preconfig-test.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-extra-junk.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-non-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-value-not-bool.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-value-not-list-of-str.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/pragma-value-not-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/qapi-schema-test.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/quoted-structural-chars.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/redefined-command.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/redefined-event.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/redefined-predefined.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/redefined-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-command-q.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-enum-q.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-member-has.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-member-q.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-member-u.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-member-underscore.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/reserved-type-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/returns-alternate.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/returns-array-bad.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/returns-bad-type.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/returns-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/returns-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/string-code-point-31.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/string-code-point-127.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-base-clash-deep.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-base-clash.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-data-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-member-if-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-member-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-member-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/struct-member-name-clash.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/trailing-comma-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/trailing-comma-object.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/type-bypass-bad-gen.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/type-case.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/unclosed-list.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/unclosed-object.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/unclosed-string.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-array-branch.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-bad-base.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-bad-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-base-any.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-base-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-base-no-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-base-union.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-branch-if-invalid.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-branch-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-clash-member.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-discriminator-bad-name.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-empty.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-inline-invalid-dict.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-int-branch.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-invalid-base.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-invalid-branch-key.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-invalid-data.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-invalid-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-invalid-if-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-no-base.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-optional-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-string-discriminator.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/union-unknown.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/unknown-escape.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/../tests/qapi-schema/unknown-expr-key.json /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/qapi-schema/missing-schema.json
+.test.deps.63 := 
+.PHONY: run-test-63
+run-test-63: $(.test.deps.63)
+	@$(call .test.run,63,$(.test.output-format))
+.PHONY: check check-report.tap check-report-unit.tap check-report-decodetree.tap check-report-softfloat.tap check-report-softfloat-conv.tap check-report-softfloat-ops.tap check-report-softfloat-compare.tap check-report-qapi-schema.tap check-report-qapi-frontend.tap
+check: run-tests
+check-report.tap check-report-unit.tap check-report-decodetree.tap check-report-softfloat.tap check-report-softfloat-conv.tap check-report-softfloat-ops.tap check-report-softfloat-compare.tap check-report-qapi-schema.tap check-report-qapi-frontend.tap: check-report%.tap: all
+	$(MAKE) .test.output-format=tap --quiet -Otarget V=1 check$* | ./scripts/tap-merge.pl | tee "$@" \
+              | ./scripts/tap-driver.pl $(if $(V),, --show-failures-only)
+.test.quick.check-unit := 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43
+.test.slow.check-unit := $(.test.quick.check-unit) 
+check-build: tests/unit/test-string-output-visitor tests/unit/test-qapi-util tests/unit/test-rcu-tailq tests/unit/check-qjson tests/unit/check-qlit tests/unit/check-qstring tests/unit/check-qlist tests/unit/test-visitor-serialization tests/unit/test-int128 tests/unit/test-rcu-simpleq tests/unit/test-qht tests/unit/test-bitmap tests/unit/test-forward-visitor tests/unit/check-qobject tests/unit/test-string-input-visitor tests/unit/test-logging tests/unit/test-x86-cpuid tests/unit/test-qemu-opts tests/unit/test-bitops tests/unit/test-cutils tests/unit/test-qdist tests/unit/test-qobject-input-visitor tests/unit/test-uuid tests/unit/check-qom-proplist tests/unit/check-qnull tests/unit/test-qgraph tests/unit/check-qom-interface tests/unit/test-qobject-output-visitor tests/unit/check-qnum tests/unit/test-smp-parse tests/unit/rcutorture tests/unit/test-rcu-list tests/unit/test-rcu-slist tests/unit/test-shift128 tests/unit/test-clone-visitor tests/unit/test-mul64 tests/unit/check-qdict tests/unit/test-keyval tests/unit/ptimer-test tests/unit/check-block-qdict tests/unit/test-opts-visitor tests/unit/test-div128 tests/unit/test-bitcnt
+.PHONY: check-unit
+.PHONY: check-report-unit.tap
+check-unit: run-tests
+ifneq ($(filter check-unit check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-unit)
+endif
+all-check-targets += check-unit
+.test.quick.check-decodetree := 44
+.test.slow.check-decodetree := $(.test.quick.check-decodetree) 
+check-build: ../../../../../../../../usr/bin/sh
+.PHONY: check-decodetree
+.PHONY: check-report-decodetree.tap
+check-decodetree: run-tests
+ifneq ($(filter check-decodetree check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-decodetree)
+endif
+all-check-targets += check-decodetree
+.test.quick.check-softfloat := 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 62
+.test.slow.check-softfloat := $(.test.quick.check-softfloat) 61
+check-build: tests/fp/fp-test tests/fp/fp-test-log2
+.PHONY: check-softfloat
+.PHONY: check-report-softfloat.tap
+check-softfloat: run-tests
+ifneq ($(filter check-softfloat check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-softfloat)
+endif
+all-check-targets += check-softfloat
+.test.quick.check-softfloat-conv := 45 46 47 48 49 50
+.test.slow.check-softfloat-conv := $(.test.quick.check-softfloat-conv) 
+check-build: tests/fp/fp-test
+.PHONY: check-softfloat-conv
+.PHONY: check-report-softfloat-conv.tap
+check-softfloat-conv: run-tests
+ifneq ($(filter check-softfloat-conv check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-softfloat-conv)
+endif
+all-check-targets += check-softfloat-conv
+.test.quick.check-softfloat-ops := 51 52 57 58 59 60 62
+.test.slow.check-softfloat-ops := $(.test.quick.check-softfloat-ops) 61
+check-build: tests/fp/fp-test tests/fp/fp-test-log2
+.PHONY: check-softfloat-ops
+.PHONY: check-report-softfloat-ops.tap
+check-softfloat-ops: run-tests
+ifneq ($(filter check-softfloat-ops check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-softfloat-ops)
+endif
+all-check-targets += check-softfloat-ops
+.test.quick.check-softfloat-compare := 53 54 55 56
+.test.slow.check-softfloat-compare := $(.test.quick.check-softfloat-compare) 
+check-build: tests/fp/fp-test
+.PHONY: check-softfloat-compare
+.PHONY: check-report-softfloat-compare.tap
+check-softfloat-compare: run-tests
+ifneq ($(filter check-softfloat-compare check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-softfloat-compare)
+endif
+all-check-targets += check-softfloat-compare
+.test.quick.check-qapi-schema := 63
+.test.slow.check-qapi-schema := $(.test.quick.check-qapi-schema) 
+check-build: ../../../../../../../../usr/bin/python3
+.PHONY: check-qapi-schema
+.PHONY: check-report-qapi-schema.tap
+check-qapi-schema: run-tests
+ifneq ($(filter check-qapi-schema check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-qapi-schema)
+endif
+all-check-targets += check-qapi-schema
+.test.quick.check-qapi-frontend := 63
+.test.slow.check-qapi-frontend := $(.test.quick.check-qapi-frontend) 
+check-build: ../../../../../../../../usr/bin/python3
+.PHONY: check-qapi-frontend
+.PHONY: check-report-qapi-frontend.tap
+check-qapi-frontend: run-tests
+ifneq ($(filter check-qapi-frontend check, $(MAKECMDGOALS)),)
+.tests += $(.test.$(SPEED).check-qapi-frontend)
+endif
+all-check-targets += check-qapi-frontend
+.PHONY: bench bench-report.tap 
+bench: run-tests
+bench-report.tap : bench-report%.tap: all
+	$(MAKE) .test.output-format=tap --quiet -Otarget V=1 bench$* | ./scripts/tap-merge.pl | tee "$@" \
+              | ./scripts/tap-driver.pl $(if $(V),, --show-failures-only)
+run-tests: $(patsubst %, run-test-%, $(.tests))

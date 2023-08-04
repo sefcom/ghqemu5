@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.inc": "c",
+        "qemu-common.h": "c",
+        "accel.h": "c",
+        "netfwd": "c",
+        "*.code": "c",
+        "*.idef": "c"
+    }
+}

@@ -1,0 +1,1 @@
+{"version": "6.1.90", "descriptive_name": "qemu", "subproject_dir": "subprojects", "subprojects": [{"name": "libvhost-user", "version": "undefined", "descriptive_name": "libvhost-user"}]}

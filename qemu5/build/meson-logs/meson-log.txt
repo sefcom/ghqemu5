@@ -1,0 +1,1996 @@
+Build started at 2023-08-04T11:31:00.750202
+Main binary: /usr/bin/python3
+Build Options: -Daudio_drv_list=default -Ddefault_devices=true -Ddocdir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/doc -Dqemu_firmwarepath=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/qemu-firmware -Dqemu_suffix=qemu -Dsphinx_build= -Dtrace_file=trace -Doptimization=2 -Ddebug=true -Dwerror=false -Dstrip=true -Db_pie=true -Db_coverage=false -Db_lto=false -Dcfi=false -Dtcg=enabled -Dxen=disabled -Dcapstone=auto -Dfdt=auto -Dslirp=auto -Dprefix=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static -Dbindir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/bin -Ddatadir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share -Dincludedir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/include -Dlibdir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/lib -Dlibexecdir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/libexec -Dlocaledir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/locale -Dlocalstatedir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/var -Dmandir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/man -Dsysconfdir=/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/etc -Dbackend=ninja
+Python system: Linux
+The Meson build system
+Version: 0.59.3
+Source dir: /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5
+Build dir: /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build
+Build type: native build
+Project name: qemu
+Project version: 6.1.90
+C compiler for the host machine: cc -m64 -mcx16 (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the host machine: cc -m64 -mcx16 ld.bfd 2.34
+C compiler for the build machine: cc -m64 -mcx16 (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the build machine: cc -m64 -mcx16 ld.bfd 2.34
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Program sh found: YES (/usr/bin/sh)
+Program python3 found: YES (/usr/bin/python3)
+WARNING: Broken python installation detected. Python files installed by Meson might not be found by python interpreter.
+C++ compiler for the host machine: c++ -m64 -mcx16 (gcc 9.4.0 "c++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C++ linker for the host machine: c++ -m64 -mcx16 ld.bfd 2.34
+Program cgcc found: NO
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp9ndjia2c
+Command line:  cc -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp9ndjia2c/testfile.c -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp9ndjia2c/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lm -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library m found: YES
+Dependency threads found: YES unknown (cached)
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp2phucnb7
+Command line:  cc -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp2phucnb7/testfile.c -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp2phucnb7/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lutil -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library util found: YES
+Run-time dependency appleframeworks found: NO (tried framework)
+Dependency zlib found: YES 1.2.11 (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <stddef.h>
+  #include <sys/types.h>
+  #ifdef CONFIG_LIBATTR
+  #include <attr/xattr.h>
+  #else
+  #include <sys/xattr.h>
+  #endif
+  int main(void) { getxattr(NULL, NULL, NULL, 0); setxattr(NULL, NULL, NULL, 0, 0); return 0; }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Run-time dependency appleframeworks found: NO (tried framework)
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpi_bmelq2
+Command line:  cc -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpi_bmelq2/testfile.c -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpi_bmelq2/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--start-group -lrt -Wl,--end-group -Wl,--allow-shlib-undefined 
+
+Code:
+ int main(void) { return 0; }
+
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Library rt found: YES
+Pkg-config binary for MachineChoice.HOST is not cached.
+Pkg-config binary for 1 specified from cross file, native file, or env var as ['pkg-config']
+Found pkg-config: /usr/bin/pkg-config (0.29.1)
+Determining dependency 'libkeyutils' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --modversion libkeyutils` -> 1
+
+Run-time dependency libkeyutils found: NO (tried pkgconfig)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define gettid meson_disable_define_of_gettid
+        
+        #include <limits.h>
+        #undef gettid
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char gettid (void);
+        
+        #if defined __stub_gettid || defined __stub___gettid
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return gettid ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "gettid" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <malloc.h>
+                int main(void) { malloc_trim(0); return 0; }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/stat.h>
+  int main(void) {
+    struct statx statxbuf;
+    statx(0, "", 0, STATX_BASIC_STATS, &statxbuf);
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'fuse3' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --modversion fuse3` -> 1
+
+Run-time dependency fuse3 found: NO (tried pkgconfig)
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'libbpf' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --modversion libbpf` -> 1
+
+Run-time dependency libbpf found: NO (tried pkgconfig)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/epoll.h")
+          #error "Header 'sys/epoll.h' could not be found"
+         #endif
+        #else
+         #include <sys/epoll.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Has header "sys/epoll.h" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("linux/magic.h")
+          #error "Header 'linux/magic.h' could not be found"
+         #endif
+        #else
+         #include <linux/magic.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Has header "linux/magic.h" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("valgrind/valgrind.h")
+          #error "Header 'valgrind/valgrind.h' could not be found"
+         #endif
+        #else
+         #include <valgrind/valgrind.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp4rg2ml7v/testfile.c:4:12: error: #error "Header 'valgrind/valgrind.h' could not be found"
+    4 |           #error "Header 'valgrind/valgrind.h' could not be found"
+      |            ^~~~~
+
+Has header "valgrind/valgrind.h" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("linux/btrfs.h")
+          #error "Header 'linux/btrfs.h' could not be found"
+         #endif
+        #else
+         #include <linux/btrfs.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Has header "linux/btrfs.h" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("libdrm/drm.h")
+          #error "Header 'libdrm/drm.h' could not be found"
+         #endif
+        #else
+         #include <libdrm/drm.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpg8ki9ti3/testfile.c:4:12: error: #error "Header 'libdrm/drm.h' could not be found"
+    4 |           #error "Header 'libdrm/drm.h' could not be found"
+      |            ^~~~~
+
+Has header "libdrm/drm.h" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("pty.h")
+          #error "Header 'pty.h' could not be found"
+         #endif
+        #else
+         #include <pty.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Has header "pty.h" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/disk.h")
+          #error "Header 'sys/disk.h' could not be found"
+         #endif
+        #else
+         #include <sys/disk.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp2lmftol_/testfile.c:4:12: error: #error "Header 'sys/disk.h' could not be found"
+    4 |           #error "Header 'sys/disk.h' could not be found"
+      |            ^~~~~
+
+Has header "sys/disk.h" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/ioccom.h")
+          #error "Header 'sys/ioccom.h' could not be found"
+         #endif
+        #else
+         #include <sys/ioccom.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpqgwcft1q/testfile.c:4:12: error: #error "Header 'sys/ioccom.h' could not be found"
+    4 |           #error "Header 'sys/ioccom.h' could not be found"
+      |            ^~~~~
+
+Has header "sys/ioccom.h" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("sys/kcov.h")
+          #error "Header 'sys/kcov.h' could not be found"
+         #endif
+        #else
+         #include <sys/kcov.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmplf6hnt3g/testfile.c:4:12: error: #error "Header 'sys/kcov.h' could not be found"
+    4 |           #error "Header 'sys/kcov.h' could not be found"
+      |            ^~~~~
+
+Has header "sys/kcov.h" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define accept4 meson_disable_define_of_accept4
+        
+        #include <limits.h>
+        #undef accept4
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char accept4 (void);
+        
+        #if defined __stub_accept4 || defined __stub___accept4
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return accept4 ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "accept4" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define clock_adjtime meson_disable_define_of_clock_adjtime
+        
+        #include <limits.h>
+        #undef clock_adjtime
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char clock_adjtime (void);
+        
+        #if defined __stub_clock_adjtime || defined __stub___clock_adjtime
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return clock_adjtime ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "clock_adjtime" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define dup3 meson_disable_define_of_dup3
+        
+        #include <limits.h>
+        #undef dup3
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char dup3 (void);
+        
+        #if defined __stub_dup3 || defined __stub___dup3
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return dup3 ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "dup3" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define fallocate meson_disable_define_of_fallocate
+        
+        #include <limits.h>
+        #undef fallocate
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char fallocate (void);
+        
+        #if defined __stub_fallocate || defined __stub___fallocate
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return fallocate ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "fallocate" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define posix_fallocate meson_disable_define_of_posix_fallocate
+        
+        #include <limits.h>
+        #undef posix_fallocate
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char posix_fallocate (void);
+        
+        #if defined __stub_posix_fallocate || defined __stub___posix_fallocate
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return posix_fallocate ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "posix_fallocate" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define posix_memalign meson_disable_define_of_posix_memalign
+        
+        #include <limits.h>
+        #undef posix_memalign
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char posix_memalign (void);
+        
+        #if defined __stub_posix_memalign || defined __stub___posix_memalign
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return posix_memalign ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmplaltgp2m/testfile.c:10:14: warning: conflicting types for built-in function 'posix_memalign'; expected 'int(void **, long unsigned int,  long unsigned int)' [-Wbuiltin-declaration-mismatch]
+   10 |         char posix_memalign (void);
+      |              ^~~~~~~~~~~~~~
+
+Checking for function "posix_memalign" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define ppoll meson_disable_define_of_ppoll
+        
+        #include <limits.h>
+        #undef ppoll
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char ppoll (void);
+        
+        #if defined __stub_ppoll || defined __stub___ppoll
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return ppoll ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "ppoll" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <sys/uio.h>
+#include <limits.h>
+
+        #if defined __stub_preadv || defined __stub___preadv
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &preadv;
+            long long b = (long long) a;
+            return (int) b;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "preadv" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define sem_timedwait meson_disable_define_of_sem_timedwait
+        
+        #include <limits.h>
+        #undef sem_timedwait
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char sem_timedwait (void);
+        
+        #if defined __stub_sem_timedwait || defined __stub___sem_timedwait
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return sem_timedwait ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "sem_timedwait" with dependency threads: YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define sendfile meson_disable_define_of_sendfile
+        
+        #include <limits.h>
+        #undef sendfile
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char sendfile (void);
+        
+        #if defined __stub_sendfile || defined __stub___sendfile
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return sendfile ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "sendfile" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define setns meson_disable_define_of_setns
+        
+        #include <limits.h>
+        #undef setns
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char setns (void);
+        
+        #if defined __stub_setns || defined __stub___setns
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return setns ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "setns" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define unshare meson_disable_define_of_unshare
+        
+        #include <limits.h>
+        #undef unshare
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char unshare (void);
+        
+        #if defined __stub_unshare || defined __stub___unshare
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return unshare ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "unshare" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define syncfs meson_disable_define_of_syncfs
+        
+        #include <limits.h>
+        #undef syncfs
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char syncfs (void);
+        
+        #if defined __stub_syncfs || defined __stub___syncfs
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return syncfs ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "syncfs" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define sync_file_range meson_disable_define_of_sync_file_range
+        
+        #include <limits.h>
+        #undef sync_file_range
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char sync_file_range (void);
+        
+        #if defined __stub_sync_file_range || defined __stub___sync_file_range
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return sync_file_range ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "sync_file_range" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define timerfd_create meson_disable_define_of_timerfd_create
+        
+        #include <limits.h>
+        #undef timerfd_create
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char timerfd_create (void);
+        
+        #if defined __stub_timerfd_create || defined __stub___timerfd_create
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return timerfd_create ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "timerfd_create" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define copy_file_range meson_disable_define_of_copy_file_range
+        
+        #include <limits.h>
+        #undef copy_file_range
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char copy_file_range (void);
+        
+        #if defined __stub_copy_file_range || defined __stub___copy_file_range
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return copy_file_range ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "copy_file_range" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define openpty meson_disable_define_of_openpty
+        
+        #include <limits.h>
+        #undef openpty
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char openpty (void);
+        
+        #if defined __stub_openpty || defined __stub___openpty
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return openpty ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "openpty" with dependency -lutil: YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define strchrnul meson_disable_define_of_strchrnul
+        
+        #include <limits.h>
+        #undef strchrnul
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char strchrnul (void);
+        
+        #if defined __stub_strchrnul || defined __stub___strchrnul
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return strchrnul ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "strchrnul" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <stdlib.h>
+#include <limits.h>
+
+        #if defined __stub_system || defined __stub___system
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &system;
+            long long b = (long long) a;
+            return (int) b;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "system" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <byteswap.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef bswap_32
+                bswap_32;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <byteswap.h> has symbol "bswap_32" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/epoll.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef epoll_create1
+                epoll_create1;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/epoll.h> has symbol "epoll_create1" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+        #include <unistd.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef environ
+                environ;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <unistd.h> has symbol "environ" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_PUNCH_HOLE
+                FALLOC_FL_PUNCH_HOLE;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <linux/falloc.h> has symbol "FALLOC_FL_PUNCH_HOLE" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_KEEP_SIZE
+                FALLOC_FL_KEEP_SIZE;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <linux/falloc.h> has symbol "FALLOC_FL_KEEP_SIZE" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_ZERO_RANGE
+                FALLOC_FL_ZERO_RANGE;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <linux/falloc.h> has symbol "FALLOC_FL_ZERO_RANGE" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #ifdef __has_include
+         #if !__has_include("linux/fiemap.h")
+          #error "Header 'linux/fiemap.h' could not be found"
+         #endif
+        #else
+         #include <linux/fiemap.h>
+        #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Has header "linux/fiemap.h" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <linux/fs.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FS_IOC_FIEMAP
+                FS_IOC_FIEMAP;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <linux/fs.h> has symbol "FS_IOC_FIEMAP" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #define getrandom meson_disable_define_of_getrandom
+        
+        #include <limits.h>
+        #undef getrandom
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char getrandom (void);
+        
+        #if defined __stub_getrandom || defined __stub___getrandom
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return getrandom ();
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking for function "getrandom" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/random.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef GRND_NONBLOCK
+                GRND_NONBLOCK;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/random.h> has symbol "GRND_NONBLOCK" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/inotify.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef inotify_init
+                inotify_init;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/inotify.h> has symbol "inotify_init" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/inotify.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef inotify_init1
+                inotify_init1;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/inotify.h> has symbol "inotify_init1" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/uio.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef struct iovec
+                struct iovec;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp8thk5rg7/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp8thk5rg7/testfile.c:5:28: warning: extra tokens at end of #ifndef directive
+    5 |             #ifndef struct iovec
+      |                            ^~~~~
+
+Header <sys/uio.h> has symbol "struct iovec" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <sys/endian.h>
+                                                     #include <sys/types.h>
+        #include <machine/bswap.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef bswap32
+                bswap32;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpjun12w3k/testfile.c:1:10: fatal error: sys/endian.h: No such file or directory
+    1 | #include <sys/endian.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+
+Header <machine/bswap.h> has symbol "bswap32" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/prctl.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef PR_SET_TIMERSLACK
+                PR_SET_TIMERSLACK;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/prctl.h> has symbol "PR_SET_TIMERSLACK" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <linux/rtnetlink.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef IFLA_PROTO_DOWN
+                IFLA_PROTO_DOWN;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <linux/rtnetlink.h> has symbol "IFLA_PROTO_DOWN" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <sys/sysmacros.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef makedev
+                makedev;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Header <sys/sysmacros.h> has symbol "makedev" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <getopt.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef optreset
+                optreset;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpli83pl0n/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpli83pl0n/testfile.c:6:17: error: 'optreset' undeclared (first use in this function)
+    6 |                 optreset;
+      |                 ^~~~~~~~
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpli83pl0n/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
+
+Header <getopt.h> has symbol "optreset" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <utmpx.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef struct utmpx
+                struct utmpx;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpfv679aa4/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpfv679aa4/testfile.c:5:28: warning: extra tokens at end of #ifndef directive
+    5 |             #ifndef struct utmpx
+      |                            ^~~~~
+
+Header <utmpx.h> has symbol "struct utmpx" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+        #include <netinet/in.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef IPPROTO_MPTCP
+                IPPROTO_MPTCP;
+            #endif
+            return 0;
+        }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp_r3rbpvd/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp_r3rbpvd/testfile.c:6:17: error: 'IPPROTO_MPTCP' undeclared (first use in this function); did you mean 'IPPROTO_MTP'?
+    6 |                 IPPROTO_MPTCP;
+      |                 ^~~~~~~~~~~~~
+      |                 IPPROTO_MTP
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp_r3rbpvd/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
+
+Header <netinet/in.h> has symbol "IPPROTO_MPTCP" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <signal.h>
+        void bar(void) {
+            struct sigevent foo;
+            foo.sigev_notify_thread_id;
+
+        };
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp4p36a_ge/testfile.c: In function 'bar':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp4p36a_ge/testfile.c:4:16: error: 'struct sigevent' has no member named 'sigev_notify_thread_id'
+    4 |             foo.sigev_notify_thread_id;
+      |                ^
+
+Checking whether type "struct sigevent" has member "sigev_notify_thread_id" : NO (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ #include <sys/stat.h>
+        void bar(void) {
+            struct stat foo;
+            foo.st_atim;
+
+        };
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Checking whether type "struct stat" has member "st_atim" : YES (cached)
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <sys/eventfd.h>
+  int main(void) { return eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC); }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <unistd.h>
+  int main(void) {
+  #if defined(_POSIX_SYNCHRONIZED_IO) && _POSIX_SYNCHRONIZED_IO > 0
+  return fdatasync(0);
+  #else
+  #error Not supported
+  #endif
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/types.h>
+  #include <sys/mman.h>
+  #include <stddef.h>
+  int main(void) { return madvise(NULL, 0, MADV_DONTNEED); }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/mman.h>
+  int main(void) { return memfd_create("foo", MFD_ALLOW_SEALING); }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <fcntl.h>
+  #if !defined(AT_EMPTY_PATH)
+  # error missing definition
+  #else
+  int main(void) { struct file_handle fh; return open_by_handle_at(0, &fh, 0); }
+  #endif
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <unistd.h>
+  #include <fcntl.h>
+
+  int main(void)
+  {
+      int pipefd[2];
+      return pipe2(pipefd, O_CLOEXEC);
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/mman.h>
+  #include <stddef.h>
+  int main(void) { return posix_madvise(NULL, 0, POSIX_MADV_DONTNEED); }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <pthread.h>
+
+  static void *f(void *p) { return NULL; }
+  int main(void)
+  {
+    pthread_t thread;
+    pthread_create(&thread, 0, f, 0);
+    pthread_setname_np(thread, "QEMU");
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpk1zpevdn/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpk1zpevdn/testfile.c:9:5: warning: implicit declaration of function 'pthread_setname_np'; did you mean 'pthread_setcanceltype'? [-Wimplicit-function-declaration]
+    9 |     pthread_setname_np(thread, "QEMU");
+      |     ^~~~~~~~~~~~~~~~~~
+      |     pthread_setcanceltype
+
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <pthread.h>
+
+  static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
+  int main(void)
+  {
+    pthread_t thread;
+    pthread_create(&thread, 0, f, 0);
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpb62x4oo9/testfile.c: In function 'f':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpb62x4oo9/testfile.c:4:29: warning: implicit declaration of function 'pthread_setname_np'; did you mean 'pthread_setcanceltype'? [-Wimplicit-function-declaration]
+    4 |   static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
+      |                             ^~~~~~~~~~~~~~~~~~
+      |                             pthread_setcanceltype
+
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/signalfd.h>
+  #include <stddef.h>
+  int main(void) { return signalfd(-1, NULL, SFD_CLOEXEC); }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp7epwk14e/testfile.c: In function 'main':
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmp7epwk14e/testfile.c:8:27: warning: null argument where non-null required (argument 2) [-Wnonnull]
+    8 |   int main(void) { return signalfd(-1, NULL, SFD_CLOEXEC); }
+      |                           ^~~~~~~~
+
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <unistd.h>
+  #include <fcntl.h>
+  #include <limits.h>
+
+  int main(void)
+  {
+    int len, fd = 0;
+    len = tee(STDIN_FILENO, STDOUT_FILENO, INT_MAX, SPLICE_F_NONBLOCK);
+    splice(STDIN_FILENO, NULL, fd, NULL, len, SPLICE_F_MOVE);
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/mman.h>
+  int main(int argc, char *argv[]) {
+    return mlockall(MCL_FUTURE);
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <linux/fs.h>'
+  struct fsxattr foo;
+  int main(void) {
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpas3ei7m3/testfile.c:2:24: warning: missing terminating ' character
+    2 |   #include <linux/fs.h>'
+      |                        ^
+/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpas3ei7m3/testfile.c:2:24: warning: extra tokens at end of #include directive
+
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+    #include <stdint.h>
+    #include <stdio.h>
+    int main(int argc, char *argv[]) {
+        return printf("%zu", SIZE_MAX);
+    }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #include <stdint.h>
+  int main(void)
+  {
+    uint64_t x = 0, y = 0;
+    y = __atomic_load_n(&x, __ATOMIC_RELAXED);
+    __atomic_store_n(&x, y, __ATOMIC_RELAXED);
+    __atomic_compare_exchange_n(&x, &y, x, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED);
+    __atomic_exchange_n(&x, y, __ATOMIC_RELAXED);
+    __atomic_fetch_add(&x, y, __ATOMIC_RELAXED);
+    return 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/auxv.h>
+  int main(void) {
+    return getauxval(AT_HWCAP) == 0;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Using cached compile:
+Cached command line:   
+
+Code:
+ 
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <errno.h>
+  #include <sys/types.h>
+  #include <sys/socket.h>
+  #if !defined(AF_VSOCK)
+  # error missing AF_VSOCK flag
+  #endif
+  #include <linux/vm_sockets.h>
+  int main(void) {
+    int sock, ret;
+    struct sockaddr_vm svm;
+    socklen_t len = sizeof(svm);
+    sock = socket(AF_VSOCK, SOCK_STREAM, 0);
+    ret = getpeername(sock, (struct sockaddr *)&svm, &len);
+    if ((ret == -1) && (errno == ENOTCONN)) {
+        return 0;
+    }
+    return -1;
+  }
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Program scripts/minikconf.py found: YES (/usr/bin/python3 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/minikconf.py)
+Configuring aarch64-linux-user-config-target.h using configuration
+Configuring aarch64_be-linux-user-config-target.h using configuration
+Configuring alpha-linux-user-config-target.h using configuration
+Configuring arm-linux-user-config-target.h using configuration
+Configuring armeb-linux-user-config-target.h using configuration
+Configuring cris-linux-user-config-target.h using configuration
+Configuring hexagon-linux-user-config-target.h using configuration
+Configuring hppa-linux-user-config-target.h using configuration
+Configuring i386-linux-user-config-target.h using configuration
+Configuring m68k-linux-user-config-target.h using configuration
+Configuring microblaze-linux-user-config-target.h using configuration
+Configuring microblazeel-linux-user-config-target.h using configuration
+Configuring mips-linux-user-config-target.h using configuration
+Configuring mips64-linux-user-config-target.h using configuration
+Configuring mips64el-linux-user-config-target.h using configuration
+Configuring mipsel-linux-user-config-target.h using configuration
+Configuring mipsn32-linux-user-config-target.h using configuration
+Configuring mipsn32el-linux-user-config-target.h using configuration
+Configuring nios2-linux-user-config-target.h using configuration
+Configuring or1k-linux-user-config-target.h using configuration
+Configuring ppc-linux-user-config-target.h using configuration
+Configuring ppc64-linux-user-config-target.h using configuration
+Configuring ppc64le-linux-user-config-target.h using configuration
+Configuring riscv32-linux-user-config-target.h using configuration
+Configuring riscv64-linux-user-config-target.h using configuration
+Configuring s390x-linux-user-config-target.h using configuration
+Configuring sh4-linux-user-config-target.h using configuration
+Configuring sh4eb-linux-user-config-target.h using configuration
+Configuring sparc-linux-user-config-target.h using configuration
+Configuring sparc32plus-linux-user-config-target.h using configuration
+Configuring sparc64-linux-user-config-target.h using configuration
+Configuring x86_64-linux-user-config-target.h using configuration
+Configuring xtensa-linux-user-config-target.h using configuration
+Configuring xtensaeb-linux-user-config-target.h using configuration
+Pkg-config binary for MachineChoice.HOST is cached.
+Determining dependency 'capstone' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --modversion capstone` -> 0
+3.0.5
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --cflags capstone` -> 0
+-I/usr/include/capstone
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --libs --static capstone` -> 0
+-L/usr/lib/x86_64-linux-gnu -lcapstone
+env[PKG_CONFIG_PATH]: 
+Called `/usr/bin/pkg-config --libs --static capstone` -> 0
+-lcapstone
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmplsoj5yci
+Command line:  c++ -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmplsoj5yci/testfile.cpp -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmplsoj5yci/output.exe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive 
+
+Code:
+ #include<stdio.h>
+        
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpq9bae72p
+Command line:  c++ -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpq9bae72p/testfile.cpp -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpq9bae72p/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Dependency capstone found: NO found 3.0.5 but need: '>=4.0'
+Run-time dependency capstone found: NO (tried pkgconfig)
+Configuring capstone-defs.h using configuration
+Configuring config-host.h using configuration
+Program scripts/hxtool found: YES (/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/hxtool)
+Program scripts/shaderinclude.pl found: YES (/usr/bin/env perl /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/shaderinclude.pl)
+Program scripts/qapi-gen.py found: YES (/usr/bin/python3 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/qapi-gen.py)
+Program scripts/qemu-version.sh found: YES (/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/qemu-version.sh)
+
+Executing subproject libvhost-user 
+
+Project name: libvhost-user
+Project version: undefined
+C compiler for the host machine: cc -m64 -mcx16 (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the host machine: cc -m64 -mcx16 ld.bfd 2.34
+C compiler for the build machine: cc -m64 -mcx16 (gcc 9.4.0 "cc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0")
+C linker for the build machine: cc -m64 -mcx16 ld.bfd 2.34
+Dependency threads found: YES unknown (cached)
+Dependency glib-2.0 found: YES 6.1.90 (overridden)
+Build targets in project: 7
+Subproject libvhost-user finished.
+
+Program cat found: YES (/usr/bin/cat)
+Program scripts/decodetree.py found: YES (/usr/bin/python3 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/decodetree.py)
+Program scripts/modinfo-collect.py found: YES (/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/modinfo-collect.py)
+Program scripts/modinfo-generate.py found: YES (/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/modinfo-generate.py)
+Program nm found: YES
+Program scripts/undefsym.py found: YES (/usr/bin/python3 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/undefsym.py)
+Program scripts/feature_to_c.sh found: YES (/bin/sh /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/scripts/feature_to_c.sh)
+Program qemu-keymap found: NO
+Program cp found: YES (/usr/bin/cp)
+Program sphinx-build-3 sphinx-build found: NO
+Program python3 found: YES (/usr/bin/python3)
+Adding test "decodetree"
+Adding test "fp-test-float-to-float"
+Adding test "fp-test-float-to-int"
+Adding test "fp-test-float-to-uint"
+Adding test "fp-test-int-to-float"
+Adding test "fp-test-round-to-integer"
+Adding test "fp-test-uint-to-float"
+Adding test "fp-test-add"
+Adding test "fp-test-div"
+Adding test "fp-test-eq_signaling"
+Adding test "fp-test-le"
+Adding test "fp-test-le_quiet"
+Adding test "fp-test-lt_quiet"
+Adding test "fp-test-mul"
+Adding test "fp-test-rem"
+Adding test "fp-test-sqrt"
+Adding test "fp-test-sub"
+Adding test "fp-test-mulAdd"
+Adding test "fp-test-log2"
+Adding test "check-block-qdict"
+Adding test "check-qdict"
+Adding test "check-qjson"
+Adding test "check-qlist"
+Adding test "check-qlit"
+Adding test "check-qnull"
+Adding test "check-qnum"
+Adding test "check-qobject"
+Adding test "check-qom-interface"
+Adding test "check-qom-proplist"
+Adding test "check-qstring"
+Adding test "ptimer-test"
+Adding test "rcutorture"
+Adding test "test-bitcnt"
+Adding test "test-bitmap"
+Adding test "test-bitops"
+Adding test "test-clone-visitor"
+Adding test "test-cutils"
+Adding test "test-div128"
+Adding test "test-forward-visitor"
+Adding test "test-int128"
+Adding test "test-keyval"
+Adding test "test-logging"
+Adding test "test-mul64"
+Adding test "test-opts-visitor"
+Adding test "test-qapi-util"
+Adding test "test-qdist"
+Adding test "test-qemu-opts"
+Adding test "test-qgraph"
+Adding test "test-qht"
+Adding test "test-qobject-input-visitor"
+Adding test "test-qobject-output-visitor"
+Adding test "test-rcu-list"
+Adding test "test-rcu-simpleq"
+Adding test "test-rcu-slist"
+Adding test "test-rcu-tailq"
+Adding test "test-shift128"
+Adding test "test-smp-parse"
+Adding test "test-string-input-visitor"
+Adding test "test-string-output-visitor"
+Adding test "test-uuid"
+Adding test "test-visitor-serialization"
+Adding test "test-x86-cpuid"
+Adding test "QAPI schema regression tests"
+Program diff found: YES (/usr/bin/diff)
+Program dbus-daemon found: YES (/usr/bin/dbus-daemon)
+Program /usr/bin/gdbus-codegen found: YES (/usr/bin/gdbus-codegen)
+Program initrd-stress.sh found: YES (/home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/tests/migration/initrd-stress.sh)
+Build targets in project: 258
+
+qemu 6.1.90
+
+  Directories
+    Install prefix               : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static
+    BIOS directory               : share/qemu
+    firmware path                : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/qemu-firmware
+    binary directory             : bin
+    library directory            : lib
+    module directory             : lib/qemu
+    libexec directory            : libexec
+    include directory            : include
+    config directory             : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/etc
+    local state directory        : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/var
+    Manual directory             : share/man
+    Doc directory                : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu-user-static/share/doc
+    Build directory              : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build
+    Source path                  : /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5
+    GIT submodules               : ui/keycodemapdb tests/fp/berkeley-testfloat-3 tests/fp/berkeley-softfloat-3 dtc capstone slirp
+
+  Host binaries
+    git                          : git
+    make                         : make
+    python                       : /usr/bin/python3 (version: 3.8)
+    sphinx-build                 : NO
+    gdb                          : /usr/bin/gdb-multiarch
+    genisoimage                  : /usr/bin/genisoimage
+
+  Configurable features
+    Documentation                : NO
+    system-mode emulation        : NO
+    user-mode emulation          : YES
+    block layer                  : NO
+    Install blobs                : YES
+    module support               : NO
+    fuzzing support              : NO
+    Trace backends               : log
+    QOM debugging                : YES
+    vhost-kernel support         : YES
+    vhost-net support            : YES
+    vhost-crypto support         : YES
+    vhost-scsi support           : YES
+    vhost-vsock support          : YES
+    vhost-user support           : YES
+    vhost-user-blk server support: NO
+    vhost-user-fs support        : YES
+    vhost-vdpa support           : YES
+    build guest agent            : NO
+
+  Compilation
+    host CPU                     : x86_64
+    host endianness              : little
+    C compiler                   : cc -m64 -mcx16
+    Host C compiler              : cc -m64 -mcx16
+    C++ compiler                 : c++ -m64 -mcx16
+    CFLAGS                       : -O2 -g
+    CXXFLAGS                     : -O2 -g
+    QEMU_CFLAGS                  : -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wstrict-prototypes -Wredundant-decls -Wundef -Wwrite-strings -Wmissing-prototypes -fno-strict-aliasing -fno-common -fwrapv -Wold-style-declaration -Wold-style-definition -Wtype-limits -Wformat-security -Wformat-y2k -Winit-self -Wignored-qualifiers -Wempty-body -Wnested-externs -Wendif-labels -Wexpansion-to-defined -Wimplicit-fallthrough=2 -Wno-missing-include-dirs -Wno-shift-negative-value -Wno-psabi -fstack-protector-strong
+    QEMU_LDFLAGS                 : -Wl,--warn-common -Wl,-z,relro -Wl,-z,now -static-pie  -fstack-protector-strong
+    profiler                     : NO
+    link-time optimization (LTO) : NO
+    PIE                          : YES
+    static build                 : YES
+    malloc trim support          : YES
+    membarrier                   : NO
+    debug stack usage            : NO
+    mutex debugging              : NO
+    memory allocator             : system
+    avx2 optimization            : YES
+    avx512f optimization         : NO
+    gprof enabled                : NO
+    gcov                         : NO
+    thread sanitizer             : NO
+    CFI support                  : NO
+    strip binaries               : YES
+    sparse                       : NO
+    mingw32 support              : NO
+    aarch64 tests                : aarch64-linux-gnu-gcc-10 via debian-arm64-test-cross
+    alpha tests                  : alpha-linux-gnu-gcc via debian-alpha-cross
+    arm tests                    : arm-linux-gnueabihf-gcc via debian-armhf-cross
+    cris tests                   : cris-linux-gnu-gcc via fedora-cris-cross
+    hexagon tests                : hexagon-unknown-linux-musl-clang via debian-hexagon-cross
+    hppa tests                   : hppa-linux-gnu-gcc via debian-hppa-cross
+    i386 tests                   : gcc via fedora-i386-cross
+    m68k tests                   : m68k-linux-gnu-gcc via debian-m68k-cross
+    microblaze tests             : microblaze-linux-musl-gcc via debian-microblaze-cross
+    mips tests                   : mips-linux-gnu-gcc via debian-mips-cross
+    mips64 tests                 : mips64-linux-gnuabi64-gcc via debian-mips64-cross
+    mips64el tests               : mips64el-linux-gnuabi64-gcc via debian-mips64el-cross
+    mipsel tests                 : mipsel-linux-gnu-gcc via debian-mipsel-cross
+    nios2 tests                  : nios2-linux-gnu-gcc via debian-nios2-cross
+    ppc tests                    : powerpc-linux-gnu-gcc-10 via debian-powerpc-test-cross
+    ppc64 tests                  : powerpc64-linux-gnu-gcc-10 via debian-powerpc-test-cross
+    ppc64le tests                : powerpc64le-linux-gnu-gcc-10 via debian-powerpc-test-cross
+    riscv64 tests                : riscv64-linux-gnu-gcc via debian-riscv64-cross
+    s390x tests                  : s390x-linux-gnu-gcc via debian-s390x-cross
+    sh4 tests                    : sh4-linux-gnu-gcc via debian-sh4-cross
+    sparc64 tests                : sparc64-linux-gnu-gcc via debian-sparc64-cross
+    x86_64 tests                 : cc
+
+  Targets and accelerators
+    TCG support                  : YES
+    TCG backend                  : native (x86_64)
+    TCG plugins                  : NO
+    TCG debug enabled            : NO
+    target list                  : aarch64-linux-user aarch64_be-linux-user alpha-linux-user arm-linux-user armeb-linux-user cris-linux-user hexagon-linux-user hppa-linux-user i386-linux-user m68k-linux-user microblaze-linux-user microblazeel-linux-user mips-linux-user mips64-linux-user mips64el-linux-user mipsel-linux-user mipsn32-linux-user mipsn32el-linux-user nios2-linux-user or1k-linux-user ppc-linux-user ppc64-linux-user ppc64le-linux-user riscv32-linux-user riscv64-linux-user s390x-linux-user sh4-linux-user sh4eb-linux-user sparc-linux-user sparc32plus-linux-user sparc64-linux-user x86_64-linux-user xtensa-linux-user xtensaeb-linux-user
+
+  Block layer support
+    coroutine backend            : ucontext
+    coroutine pool               : YES
+
+  Crypto
+    TLS priority                 : "NORMAL"
+    GNUTLS support               : NO
+    libgcrypt                    : NO
+    nettle                       : NO
+    crypto afalg                 : NO
+    rng-none                     : NO
+    Linux keyring                : YES
+
+  Dependencies
+    SDL support                  : NO
+    SDL image support            : NO
+    GTK support                  : NO
+    pixman                       : NO
+    VTE support                  : NO
+    slirp support                : NO
+    libtasn1                     : NO
+    PAM                          : NO
+    iconv support                : NO
+    curses support               : NO
+    virgl support                : NO
+    curl support                 : NO
+    Multipath support            : NO
+    VNC support                  : NO
+    OSS support                  : NO
+    ALSA support                 : NO
+    PulseAudio support           : NO
+    JACK support                 : NO
+    brlapi support               : NO
+    vde support                  : NO
+    netmap support               : NO
+    l2tpv3 support               : NO
+    Linux AIO support            : NO
+    Linux io_uring support       : NO
+    ATTR/XATTR support           : YES
+    RDMA support                 : NO
+    PVRDMA support               : NO
+    fdt support                  : auto
+    libcap-ng support            : NO
+    bpf support                  : NO
+    spice protocol support       : NO
+    rbd support                  : NO
+    xfsctl support               : NO
+    smartcard support            : NO
+    U2F support                  : NO
+    libusb                       : NO
+    usb net redir                : NO
+    OpenGL support               : NO
+    GBM                          : NO
+    libiscsi support             : NO
+    libnfs support               : NO
+    seccomp support              : NO
+    GlusterFS support            : NO
+    TPM support                  : YES
+    libssh support               : NO
+    lzo support                  : NO
+    snappy support               : NO
+    bzip2 support                : NO
+    lzfse support                : NO
+    zstd support                 : NO
+    NUMA host support            : YES
+    libxml2                      : NO
+    capstone                     : internal
+    libpmem support              : NO
+    libdaxctl support            : NO
+    libudev                      : NO
+    FUSE lseek                   : NO
+
+  Subprojects
+    libvhost-user                : YES
+
+Found ninja-1.10.2.git.kitware.jobserver-1 at /home/htay/.local/bin/ninja
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpqrui158o
+Command line:  cc -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpqrui158o/testfile.c -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpqrui158o/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpl1quybo_
+Command line:  cc -m64 -mcx16 /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpl1quybo_/testfile.c -o /home/htay/greenhouse_project/code/Greenhouse/GreenhouseQemu/qemu5/build/meson-private/tmpl1quybo_/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/9/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/9/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/9/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /tmp/tmpkfpfxe2d
+Command line:  c++ -m64 -mcx16 /tmp/tmpkfpfxe2d/testfile.cpp -o /tmp/tmpkfpfxe2d/output.obj -D_FILE_OFFSET_BITS=64 -c -std=gnu++11 
+
+Code:
+ int i = static_cast<int>(0);
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler accepts -std=gnu++11: YES
