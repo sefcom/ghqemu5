@@ -76,6 +76,7 @@ int program_code_only = 0; // GREENHOUSE PATCH
 bool hackbind = false; // GREENHOUSE PATCH
 bool hackproc = false; // GREENHOUSE PATCH
 bool hacksysinfo = false; // GREENHOUSE PATCH
+int gh_listen_fd = -1; // GREENHOUSE PATCH: socket fd from hackbind
 
 /*
  * Used to implement backwards-compatibility for the `-strace`, and

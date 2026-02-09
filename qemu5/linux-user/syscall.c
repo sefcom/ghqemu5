@@ -3297,10 +3297,12 @@ static abi_long do_bind(int sockfd, abi_ulong target_addr,
             // GREENHOUSE PATCH - create mark only if successful
             ret = get_errno(bind(sockfd, addr, addrlen));
             if (!ret) {
-                // create_mark(FIRMFUCK, "bind\n");  
+                // create_mark(FIRMFUCK, "bind\n");
                 fprintf(stderr, "[qemu] Successful Bind %d\n", (int)ret);
                 used_ports[ports_index] = newport;
                 ports_index = ports_index + 1;
+                /* Save the socket fd for emergency accept loop */
+                gh_listen_fd = sockfd;
                 return ret;
             }
             if (newport <= 0) {
@@ -6513,6 +6515,11 @@ abi_long do_arch_prctl(CPUX86State *env, int code, abi_ulong addr)
 
 
 static pthread_mutex_t clone_lock = PTHREAD_MUTEX_INITIALIZER;
+
+/* Greenhouse: save parent's $gp at first clone for SIGSEGV recovery */
+#if defined(TARGET_MIPS)
+target_ulong gh_saved_gp = 0;
+#endif
 typedef struct {
     CPUArchState *env;
     pthread_mutex_t mutex;
@@ -6581,6 +6588,25 @@ static int do_fork(CPUArchState *env, unsigned int flags, abi_ulong newsp,
         TaskState *parent_ts = (TaskState *)cpu->opaque;
         new_thread_info info;
         pthread_attr_t attr;
+
+#if defined(TARGET_MIPS)
+        /* Save parent's $gp for SIGSEGV recovery */
+        if (!gh_saved_gp) {
+            gh_saved_gp = env->active_tc.gpr[28];
+        }
+#endif
+
+        /* Support LinuxThreads: older uClibc (0.9.x) uses clone() with
+         * CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND but without
+         * CLONE_THREAD|CLONE_SYSVSEM. Add CLONE_THREAD|CLONE_SYSVSEM
+         * to pass validation but also strip the exit signal since
+         * CLONE_THREAD silences it. */
+        if ((flags & (CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND)) ==
+                     (CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND) &&
+            !(flags & CLONE_THREAD)) {
+            flags |= CLONE_THREAD | CLONE_SYSVSEM;
+            flags &= ~0xff; /* clear exit signal */
+        }
 
         if (((flags & CLONE_THREAD_FLAGS) != CLONE_THREAD_FLAGS) ||
             (flags & CLONE_INVALID_THREAD_FLAGS)) {

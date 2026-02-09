@@ -150,6 +150,17 @@ restore_sigcontext(CPUMIPSState *regs, struct target_sigcontext *sc)
         __get_user(regs->active_tc.gpr[i], &sc->sc_regs[i]);
     }
 
+    /* Greenhouse hack: after sigreturn, ensure $gp is valid. In
+     * multi-threaded LinuxThreads firmware, signal frames may be set up
+     * while $gp is corrupt (due to TCG race). Restoring such a frame
+     * propagates the corruption. Force $gp back to the known-good value. */
+    {
+        extern target_ulong gh_saved_gp;
+        if (gh_saved_gp && regs->active_tc.gpr[28] != gh_saved_gp) {
+            regs->active_tc.gpr[28] = gh_saved_gp;
+        }
+    }
+
     __get_user(regs->active_tc.HI[1], &sc->sc_hi1);
     __get_user(regs->active_tc.HI[2], &sc->sc_hi2);
     __get_user(regs->active_tc.HI[3], &sc->sc_hi3);
